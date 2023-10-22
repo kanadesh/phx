@@ -1,0 +1,31 @@
+{
+  "name": "phx",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "fmt": "prettier --write .",
+    "compile": "bun build --compile src/main.ts --outfile dist/phx",
+    "phx": "cd example && ../dist/phx",
+    "dev": "cd example && bun ../src/main.ts"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.7",
+    "@types/yargs": "^17.0.29",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prettier/plugin-php": "^0.21.0",
+    "@supercharge/fs": "^3.4.0",
+    "@types/degit": "^2.8.5",
+    "@types/nodegit": "^0.28.6",
+    "chalk": "^5.3.0",
+    "degit": "^2.8.4",
+    "ora": "^7.0.1",
+    "prettier": "^3.0.3",
+    "prompts": "^2.4.2",
+    "yargs": "^17.7.2"
+  }
+}
