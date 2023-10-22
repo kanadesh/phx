@@ -44,7 +44,7 @@ export const initCommand = async () => {
         return
     }
 
-    const spinner = ora('Finding unicorn...').start()
+    const spinner = ora('Finding unicorn...')
 
     const cwd = process.cwd()
     const phpFilePath = path.join(cwd, 'php.json')
@@ -67,10 +67,12 @@ export const initCommand = async () => {
             phpFilePath,
             await tidy(
                 JSON.stringify({
-                    name: 'your_php_project',
                     description: 'Your php project is here! XD',
                     phx: {
-                        fmt: {}
+                        fmt: {
+                            // ignore using path-to-regexp
+                            ignoredFiles: []
+                        }
                     }
                 }),
                 { parser: 'json' }
@@ -90,6 +92,8 @@ export const initCommand = async () => {
             }
             await supercharge.emptyDir(cwd)
         }
+
+        spinner.start()
 
         let gitUrl: string = parseRepoName(promptResponse.templateRepo)
 
